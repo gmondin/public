@@ -47,8 +47,6 @@ export class ProductsLineDetailsPage implements OnInit {
 
   deleteProductLine(){
     let productLineId = this.activatedRoute.snapshot.paramMap.get('id'); 
-    let productsLine = this.productService.getProductByLine(productLineId);
-    if (productsLine == null){
       if (productLineId == '' || productLineId == null){
         this.presentAlert('Product Line is Null!!!', 'Sucess', '');
       }else{
@@ -56,7 +54,6 @@ export class ProductsLineDetailsPage implements OnInit {
         this.presentAlert('Product Line Deleted!!!', 'Sucess', '');
         this.router.navigate(['products-lines/']);
      }
-    }
   }
 
   searchProducsByLine(productLineName: string){
