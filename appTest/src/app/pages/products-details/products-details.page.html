@@ -1,0 +1,55 @@
+<ion-header>  
+  <ion-toolbar color="primary">  
+    <ion-buttons slot="start">  
+      <ion-menu-button color="dark"></ion-menu-button>   
+    </ion-buttons>  
+    <ion-title>{{ product?.productCode }} {{ product?.productName }}</ion-title>  
+  </ion-toolbar>   
+</ion-header> 
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">Code</ion-label>
+    <ion-input disabled="{{isDisabledProductCode}}" [(ngModel)]="product.productCode" maxlength=15 required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input [(ngModel)]="product.productName" maxlength=70 required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Line</ion-label>
+    <ion-input [(ngModel)]="product.productLine" required=true></ion-input>
+    <ion-button expand="block" (click)="addProductLine()">       
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Scale</ion-label>
+    <ion-input [(ngModel)]="product.productScale" maxlength=10 required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Vendor</ion-label>
+    <ion-input [(ngModel)]="product.productVendor" maxlength=50 required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Description</ion-label>
+    <ion-input [(ngModel)]="product.productDescription" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Stock</ion-label>
+    <ion-input type="number" [(ngModel)]="product.quantityInStock" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Price</ion-label>
+    <ion-input type="decimal" [(ngModel)]="product.buyPrice" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">MSRP</ion-label>
+    <ion-input type="decimal" [(ngModel)]="product.MSRP" required=true></ion-input>
+  </ion-item>  
+  <ion-item>
+    <ion-button color="danger" (click)="deleteProduct(product.productCode)">Delete</ion-button>
+    <ion-button expand="block" (click)="saveProduct()">Save</ion-button>
+  </ion-item>
+
+</ion-content>
