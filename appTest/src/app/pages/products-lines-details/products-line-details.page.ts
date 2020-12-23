@@ -47,10 +47,8 @@ export class ProductsLineDetailsPage implements OnInit {
 
   deleteProductLine(){
     let productLineId = this.activatedRoute.snapshot.paramMap.get('id'); 
-    let products = this.productService.getProductByLine(productLineId);
-    if (products != null){
-      this.presentAlert('Product Line can`t be deleted, check products associated!!!', 'Error', '');
-    }else if (products == null){
+    let productsLine = this.productService.getProductByLine(productLineId);
+    if (productsLine == null){
       if (productLineId == '' || productLineId == null){
         this.presentAlert('Product Line is Null!!!', 'Sucess', '');
       }else{
